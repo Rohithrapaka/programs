@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<script>
+    function validate() {
+        var fn = document.forms["frm"]["fname"].value;
+        localStorage.setItem("firstname", fn);
+        for (var x in fn) {
+            var ch = fn.charCodeAt(x);
+            if ((ch < 65 || ch > 90) && (ch < 97 || ch > 122)) {
+                alert("Invalid first name");
+                return false;
+            }
+        }
+
+        var ln = document.forms["frm"]["lname"].value;
+        localStorage.setItem("lastname", ln);
+        for (var y in ln) {
+            var ch = ln.charCodeAt(y);
+            if ((ch < 65 || ch > 90) && (ch < 97 || ch > 122)) {
+                alert("Invalid last name");
+                return false;
+            }
+        }
+
+        var phn = document.forms["frm"]["phone"].value;
+        localStorage.setItem("phone", phn);
+        if (phn.length !== 10) {
+            alert("Phone number should be exactly 10 digits");
+            return false;
+        }
+
+        var pwd1 = document.forms["frm"]["pwd"].value;
+        localStorage.setItem("password", pwd1);
+        if (pwd1.length % 2 !== 0) {
+            alert("Password should contain an even number of characters");
+            return false;
+        }
+
+        var reg = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+        var mail = document.forms["frm"]["mailid"].value;
+        localStorage.setItem("email", mail);
+        if (!reg.test(mail)) {
+            alert("Invalid Email");
+            return false;
+        }
+        alert("Registration successful!!!");
+        return true;
+    }
+</script>
+<body>
+    <center>
+            <form name="frm" method="POST" action="/login" onsubmit="return validate()">
+                <fieldset align="center">
+                    <table align="center">
+                        <tr><td>First Name:</td><td><input type="text" name="fname" value="" size="50" required/></td></tr>
+                        <tr><td>Last Name:</td><td><input type="text" name="lname" value="" size="50" required/></td></tr>
+                        <tr><td>Ph No:</td><td><input type="text" name="phone" value="" size="50" required/></td></tr>
+                        <tr><td>Mail Id:</td><td><input type="email" name="mailid" value="" size="50" required/></td></tr>
+                        <tr><td>Gender:</td>
+                            <td>male:<input type="radio" name="gender" value="male">
+                            female:<input type="radio" name="gender" value="female"></td></tr>
+                        <tr><td>DOB:</td><td><input type="date" name="dob" size="50" required/></td></tr>
+                        <tr><td>Username:</td><td><input type="text" name="uname" value="" size="50" required/></td></tr>
+                        <tr><td>Password:</td><td><input type="password" name="pwd" value="" size="50" required/></td></tr>
+                        <tr><td>Age:</td><td><input type="text" name="age" value="" size="50" required/></td></tr>
+                    </table>
+                    <input type="submit" value="SUBMIT" name="submit"/>
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effects & Animations</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box { width: 100px; height: 100px; background: blue; margin: 10px; }
+    </style>
+</head>
+<body>
+
+    <button id="fadeToggleBtn">Fade Toggle</button>
+    <button id="slideBtn">Slide Toggle</button>
+    <button id="animateBtn">Animate</button>
+
+    <div id="box"></div>
+
+    <script>
+        $(document).ready(function(){
+            $("#fadeToggleBtn").click(function(){ $("#box").fadeToggle(1000); });
+            $("#slideBtn").click(function(){ $("#box").slideToggle(1000); });
+            $("#animateBtn").click(function(){ $("#box").animate({width: "200px", height: "200px"}, 1000); });
+        });
+    </script>
+
+</body>
+</html>

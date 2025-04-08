@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Register</title>
+        <style>
+            body {
+                text-align: center;
+                font-family: sans-serif;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            table tr td {
+                padding-top: 6px;
+                padding-bottom: 6px;
+            }
+            fieldset {
+                width: 500px;
+                text-align: center;
+                margin: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Registration</h1>
+        <form name="frm" onsubmit="return validate();">
+            <fieldset>
+                <table>
+                    <tr><td>First Name:</td><td><input type="text" name="fname" required></td></tr>
+                    <tr><td>Last Name:</td><td><input type="text" name="lname" required></td></tr>
+                    <tr><td>Ph No:</td><td><input type="text" name="phone" required></td></tr>
+                    <tr><td>Mail Id:</td><td><input type="email" name="mailid" required></td></tr>
+                    <tr><td>Gender:</td>
+                        <td>Male: <input type="radio" name="gender" value="male">
+                        Female: <input type="radio" name="gender" value="female"></td></tr>
+                    <tr><td>DOB:</td><td><input type="date" name="dob" required></td></tr>
+                    <tr><td>Username:</td><td><input type="text" name="uname" required></td></tr>
+                    <tr><td>Password:</td><td><input type="password" name="pwd" required></td></tr>
+                    <tr><td>Age:</td><td><input type="text" name="age" required></td></tr>
+                </table>
+                <input type="submit" value="SUBMIT">
+            </fieldset>
+        </form>
+        <script src="register.js"></script>
+    </body>
+</html>
